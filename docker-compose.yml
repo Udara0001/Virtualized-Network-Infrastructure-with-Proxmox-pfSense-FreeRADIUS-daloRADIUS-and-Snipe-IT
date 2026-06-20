@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: snipe-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: StrongRootPass
+      MYSQL_DATABASE: snipeit
+      MYSQL_USER: snipeuser
+      MYSQL_PASSWORD: StrongDBPass
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  snipeit:
+    image: snipe/snipe-it:latest
+    container_name: snipeit
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_KEY: base64:i1BYV5YRTEWFnh1PGu1htJOGRHaDVjkjdV0RodlRKWE=
+      APP_URL: http://192.168.100.94:8080
+      DB_HOST: mysql
+      DB_DATABASE: snipeit
+      DB_USERNAME: snipeuser
+      DB_PASSWORD: StrongDBPass
+    volumes:
+      - snipeit-data:/var/lib/snipeit
+
+volumes:
+  mysql-data:
+  snipeit-data:
