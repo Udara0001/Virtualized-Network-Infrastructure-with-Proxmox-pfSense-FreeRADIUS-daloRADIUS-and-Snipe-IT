@@ -86,11 +86,11 @@ Skills Demonstrated
 
 Future Improvements
 
-        •	Implement HTTPS with SSL certificates.
-        •	Integrate LDAP/Active Directory authentication.
-        •	Deploy monitoring tools such as Zabbix or Prometheus.
-        •	Configure VLANs and advanced firewall policies in pfSense.
-        •	Deploy services using Kubernetes.
+    •	Implement HTTPS with SSL certificates.
+    •	Integrate LDAP/Active Directory authentication.
+    •	Deploy monitoring tools such as Zabbix or Prometheus.
+    •	Configure VLANs and advanced firewall policies in pfSense.
+    •	Deploy services using Kubernetes.
 
 
 
